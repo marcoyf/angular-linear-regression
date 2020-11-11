@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  regressionUrl: 'http://localhost:8000/house-price-prediction',
+  loanUrl: 'http://localhost:8100/bank-loan'
 };
 
 /*

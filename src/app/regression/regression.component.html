@@ -1,0 +1,52 @@
+<div class="container" style="margin-top: 20px;">
+  <div class="row">
+    <div class="col">
+      <mat-label>House size</mat-label>
+    </div>
+    <div class="col">
+      <input matInput type="number" #houseSize>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-label>Lot size</mat-label>
+    </div>
+    <div class="col">
+      <input matInput type="number" #lotSize>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Number of bedrooms
+    </div>
+    <div class="col">
+      <mat-slider min="1" max="6" step="1" thumbLabel #bedrooms></mat-slider>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-slide-toggle #granite>Granite in the kitchen</mat-slide-toggle>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-slide-toggle #bathroom>Upgraded bathroom</mat-slide-toggle>
+    </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col" align="right">
+      <button mat-raised-button (click)="onGetPricePrediction(houseSize.value, lotSize.value, bedrooms.value, granite.checked, bathroom.checked)">Predict price</button>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="prediction?.sellingPrice">
+  <img src="./assets/mago-merlin.gif" />
+  <div class="row">
+    <div class="col">
+      <mat-label>Selling price</mat-label>
+    </div>
+    <div class="col">
+      {{prediction?.sellingPrice}}
+    </div>
+  </div>
+</div>
